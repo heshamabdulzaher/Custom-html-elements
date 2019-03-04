@@ -11,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #f2f3f8;
-  font-family: serif;
+  font-family: sans-serif, arial;
 }
 .container {
   width: 1170px;
@@ -23,8 +23,79 @@ body {
 .form-field-container {
   width: calc(100% / 3 - 20px);
   margin: 10px;
-  padding: 20px;
   border-radius: 3px;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+}
+h3 {
+  padding: 1em;
+  margin: 0;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: center;
+  background-color: #09181e;
+  color: #fff;
+}
+
+/* Standard input */
+.standard_input {
+  margin: 4em 20px;
+  position: relative;
+}
+
+.standard_input label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  cursor: text;
+  user-select: none;
+  font-size: 1em;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  transform-origin: center left;
+  transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.standard_input.active label {
+  color: var(--PColor);
+  transform: scale(0.75) translateY(-35px);
+}
+.standard_input.gotValue label {
+  transform: scale(0.75) translateY(-35px);
+}
+
+.standard_input input {
+  width: 100%;
+  height: 38px;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  border-radius: 4px 4px 0 0;
+  font-size: 1em;
+}
+
+.standard_input__underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #dadce0;
+}
+.standard_input__underline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: var(--PColor);
+  width: 100%;
+  height: 2px;
+  transform: translateX(-50%) scaleX(0.2);
+  opacity: 0;
+  transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.standard_input.active .standard_input__underline::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
 }
